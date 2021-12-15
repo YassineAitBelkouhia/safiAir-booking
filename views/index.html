@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/app.css" />
+    <title>Safi Air</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="navBar">
+        <img src="/LOGO1.png" alt="" />
+        <div class="authHolder">
+          <button class="register">Register</button>
+          <button class="signIn">Sign In</button>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionHeading">
+          <h1 id="headindText">ARE YOU RAEDY TO TAKE-OFF ?</h1>
+          <div onclick="showBookingModal()" id="bookNowButton" class="button">
+            <p>Book Now</p>
+            <img src="/rightArrow1.png" alt="" />
+          </div>
+        </div>
+
+        <img style="display: none" id="mapImage" src="/worldMap.png" alt="" />
+
+        <div style="display: none" id="formContainer" class="formContainer">
+          <form action="">
+            <div class="formGroup fullName">
+              <label for="fullName">Full Name:</label>
+              <input type="text" name="fullName" />
+            </div>
+            <div class="formGroup idCard">
+              <label for="idCard">ID Card:</label>
+              <input type="text" name="idCard" />
+            </div>
+            <div class="formGroup email">
+              <label for="email">Email:</label>
+              <input type="email" name="email" />
+            </div>
+            <div class="formGroup flightType">
+              <label for="flightType">Flight Type:</label>
+              <select name="flightType" id="flightType">
+                <option value="oneWay">One-Way</option>
+                <option value="roundTrip">Round-Trip</option>
+              </select>
+            </div>
+            <div class="formGroup numberOfPassengers">
+              <label for="numberOfPassengers">N°Passengers(6 Max):</label>
+              <select name="numberOfPassengers" id="numberOfPassengers">
+                <option value="1">One Passenger</option>
+                <option value="2">Two Passengers</option>
+                <option value="3">Three Passengers</option>
+                <option value="4">Foor Passengers</option>
+                <option value="5">Five Passengers</option>
+                <option value="6">Six Passengers</option>
+              </select>
+            </div>
+            <div class="formGroup from">
+              <label for="from">Departure:</label>
+              <select name="from">
+                <option value="1">Oujda Angads Airport</option>
+                <option value="2">Nador El Aroui Airport</option>
+                <option value="3">Rabat-Salé Airport</option>
+                <option value="4">Tangier Ibn Battouta Airport</option>
+                <option value="5">Fez-Saïss Airport</option>
+                <option value="6">Agadir Al Massira Airport</option>
+                <option value="7">Marrakesh Menara Airport</option>
+                <option value="8">Casablanca Mohammed V Airport</option>
+              </select>
+            </div>
+            <div class="formGroup to">
+              <label for="to">Destination:</label>
+              <select name="to">
+                <option value="1">Oujda Angads Airport</option>
+                <option value="2">Nador El Aroui Airport</option>
+                <option value="3">Rabat-Salé Airport</option>
+                <option value="4">Tangier Ibn Battouta Airport</option>
+                <option value="5">Fez-Saïss Airport</option>
+                <option value="6">Agadir Al Massira Airport</option>
+                <option value="7">Marrakesh Menara Airport</option>
+                <option value="8">Casablanca Mohammed V Airport</option>
+              </select>
+            </div>
+            <div class="formGroup DepartureDate">
+              <label for="DepartureDate">Departure Date:</label>
+              <input type="date" />
+            </div>
+            <div class="formGroup returnDate">
+              <label for="returnDate">Return Date:</label>
+              <input type="date" />
+            </div>
+
+            <button type="submit">BOOK NOW</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer">
+        <p>SAFI AIR &copy; 2021</p>
+      </div>
+    </div>
+    <script src="/app.js"></script>
+  </body>
+</html>
