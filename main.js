@@ -6,11 +6,22 @@ const port = 3000,
   contentTypes = require("./contentTypes"),
   utils = require("./utils"),
   qs = require("querystring"),
+  nodemailer = require("nodemailer"),
   connexion = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "",
     database: "safiair",
+  }),
+  transporter = nodemailer.createTransport({
+    host: "smtp.ethereal.email",
+    port: 587,
+    secure: false,
+    service: "gmail",
+    auth: {
+      user: "safiairyourbestchoice@gmail.com",
+      pass: "testPasswordSafiAir",
+    },
   });
 
 router.get("/", (req, res) => {
@@ -34,7 +45,36 @@ router.post("/bookings", (req, res) => {
         console.log("Last insert ID:", res.insertId);
       });
 
-      console.log(data);
+      console.log(data.flightType);
+      let template = `Dear ${data.fullName},\n 
+      We are pleased to inform you that your booking is confirmed.\n
+      \n
+      Flight Type : ${data.flightType}
+      Your Departure : ${data.departureDate}
+      Your Return : ${data.returnDate} 
+      \n
+      Booking details:
+      \n
+      Number Of Passengers : ${data.numberOfPassengers}
+      Departure : ${data.from}
+      Destination : ${data.to}
+      
+      Have a safe flight, 
+      `,
+        mailOptions = {
+          from: "safiairyourbestchoice@gmail.com",
+          to: `${data.email}`,
+          subject: "Safi Air Booking Confirmation",
+          text: template,
+        };
+      //Send Email
+      transporter.sendMail(mailOptions, function (error, info) {
+        if (error) {
+          console.log(error);
+        } else {
+          console.log("Email sent: " + info.response);
+        }
+      });
     });
   res.writeHead(httpStatus.OK, contentTypes.html);
   utils.getFile("views/myBookings.html", res);

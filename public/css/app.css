@@ -34,6 +34,28 @@ body {
   background-image: url("ASSETS/BG.jpg");
 }
 
+.bookingContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bookingContainer h1 {
+  color: var(--actionColor);
+  font-family: ubuntu;
+  font-size: 18px;
+  font-weight: normal;
+  text-align: center;
+}
+
+.bookingContainer a {
+  text-decoration: none;
+  margin-top: 40px;
+  color: var(--textColor);
+  font-family: ubuntu;
+  font-size: 15px;
+}
+
 .navBar {
   display: flex;
   flex-direction: row;
