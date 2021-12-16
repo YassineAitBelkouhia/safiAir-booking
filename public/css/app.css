@@ -84,6 +84,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 0 50px;
+  height: 100%;
   /* border: 1px solid whitesmoke; */
 }
 
@@ -123,11 +124,21 @@ body {
 }
 
 .formContainer {
-  padding: 30px;
+  padding: 60px 30px;
   margin: auto;
   border-radius: 5px;
   background-color: var(--mainColor);
   box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+  animation: smoothAppear 0.5s ease;
+}
+
+@keyframes smoothAppear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .formContainer form {
@@ -154,18 +165,18 @@ form button {
   border: none;
   color: var(--mainColor);
   font-family: ubuntu;
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 500;
-  border-radius: 5px;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+  /* border-radius: 5px; */
+  box-shadow: rgba(187, 166, 166, 0.25) 0px 25px 50px -12px;
   cursor: pointer;
 }
 
 .formGroup {
   display: flex;
   font-family: Ubuntu;
-  font-size: 18px;
-  font-weight: 500;
+  font-size: 15px;
+  font-weight: 400;
   flex-direction: column;
   gap: 8px;
 }
@@ -180,6 +191,20 @@ form button {
   color: var(--actionColor);
   font-size: 18px;
   font-family: Ubuntu;
+}
+
+@keyframes fadesUp {
+  from {
+    transform: translateY(0%);
+    opacity: 1;
+    display: flex;
+  }
+
+  to {
+    transform: translateY(-50%);
+    opacity: 0;
+    display: none;
+  }
 }
 
 .footer {

@@ -18,18 +18,18 @@
       </div>
 
       <div class="content">
-        <div class="actionHeading">
-          <h1 id="headindText">ARE YOU RAEDY TO TAKE-OFF ?</h1>
-          <div onclick="showBookingModal()" id="bookNowButton" class="button">
+        <div id="actionHeading" class="actionHeading">
+          <h1>ARE YOU RAEDY<br />TO TAKE-OFF ?</h1>
+          <div onclick="showBookingModal()" class="button">
             <p>Book Now</p>
             <img src="/rightArrow1.png" alt="" />
           </div>
         </div>
 
-        <img style="display: none" id="mapImage" src="/worldMap.png" alt="" />
+        <img id="mapImage" src="/worldMap.png" alt="" />
 
         <div style="display: none" id="formContainer" class="formContainer">
-          <form action="">
+          <form id="form" action="/bookings" method="post">
             <div class="formGroup fullName">
               <label for="fullName">Full Name:</label>
               <input type="text" name="fullName" />
@@ -88,11 +88,11 @@
             </div>
             <div class="formGroup DepartureDate">
               <label for="DepartureDate">Departure Date:</label>
-              <input type="date" />
+              <input name="DepartureDate" type="date" />
             </div>
             <div class="formGroup returnDate">
               <label for="returnDate">Return Date:</label>
-              <input type="date" />
+              <input name="returnDate" type="date" />
             </div>
 
             <button type="submit">BOOK NOW</button>

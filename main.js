@@ -1,18 +1,45 @@
 const port = 3000,
   http = require("http"),
   httpStatus = require("http-status-codes"),
+  mysql = require("mysql"),
   router = require("./router"),
   contentTypes = require("./contentTypes"),
-  utils = require("./utils");
+  utils = require("./utils"),
+  qs = require("querystring"),
+  connexion = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: "",
+    database: "safiair",
+  });
 
 router.get("/", (req, res) => {
   res.writeHead(httpStatus.OK, contentTypes.html);
   utils.getFile("views/index.html", res);
 });
 
-router.get("/bookings", (req, res) => {
+router.post("/bookings", (req, res) => {
+  let body = "";
+  req
+    .on("data", (data) => {
+      body += data;
+    })
+
+    .on("end", async () => {
+      // console.log(body);
+      var data = qs.parse(body);
+      connexion.query("INSERT INTO bookings SET ?", data, (err, res) => {
+        if (err) throw err;
+
+        console.log("Last insert ID:", res.insertId);
+      });
+
+      console.log(data);
+    });
   res.writeHead(httpStatus.OK, contentTypes.html);
   utils.getFile("views/myBookings.html", res);
+  // res.end();
+  // console.log(req.params);
 });
 
 router.get("/BG1.png", (req, res) => {
@@ -43,4 +70,12 @@ router.get("/app.js", (req, res) => {
 });
 
 http.createServer(router.handle).listen(port);
+connexion.connect((err) => {
+  if (err) {
+    console.log("Error connecting to Db");
+    return;
+  }
+  console.log("Connection established");
+});
+
 console.log(`The server is listening on port number: ${port}`);

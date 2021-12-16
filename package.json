@@ -17,6 +17,10 @@
   },
   "homepage": "https://github.com/YassineAitBelkouhia/safiAir-booking#readme",
   "dependencies": {
-    "http-status-code": "^2.1.0"
+    "http-status-code": "^2.1.0",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
   }
 }
