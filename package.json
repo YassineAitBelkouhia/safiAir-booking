@@ -1,0 +1,22 @@
+{
+  "name": "safi-air",
+  "version": "1.0.0",
+  "description": "Booking Flights",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YassineAitBelkouhia/safiAir-booking.git"
+  },
+  "author": "D.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YassineAitBelkouhia/safiAir-booking/issues"
+  },
+  "homepage": "https://github.com/YassineAitBelkouhia/safiAir-booking#readme",
+  "dependencies": {
+    "http-status-code": "^2.1.0"
+  }
+}
