@@ -17,8 +17,12 @@ const form = document.getElementById("form"),
     }, 1400);
   },
   getTodaysDat = () => {
-    let today = new Date();
+    let today = new Date(),
+      maxDate = new Date();
+
+    maxDate.setDate(today.getDate() + 30);
     form.departureDate.setAttribute("min", today.toISOString().split("T")[0]);
+    form.returnDate.setAttribute("max", maxDate.toISOString().split("T")[0]);
   };
 
 getTodaysDat();
