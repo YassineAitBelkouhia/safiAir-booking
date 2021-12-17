@@ -22,7 +22,17 @@ const port = 3000,
       user: "safiairyourbestchoice@gmail.com",
       pass: "testPasswordSafiAir",
     },
-  });
+  }),
+  airPorts = [
+    "Oujda Angads Airport",
+    "Nador El Aroui Airport",
+    "Rabat-Salé Airport",
+    "Tangier Ibn Battouta Airport",
+    "Fez-Saïss Airport",
+    "Agadir Al Massira Airport",
+    "Marrakesh Menara Airport",
+    "Casablanca Mohammed V Airport",
+  ];
 
 router.get("/", (req, res) => {
   res.writeHead(httpStatus.OK, contentTypes.html);
@@ -41,12 +51,9 @@ router.post("/bookings", (req, res) => {
       var data = qs.parse(body);
       connexion.query("INSERT INTO bookings SET ?", data, (err, res) => {
         if (err) throw err;
-
-        console.log("Last insert ID:", res.insertId);
       });
 
-      console.log(data.flightType);
-      let template = `Dear ${data.fullName},\n 
+      let template = `Dear ${data.fullName}, ID: ${data.idCard}\n 
       We are pleased to inform you that your booking is confirmed.\n
       \n
       Flight Type : ${data.flightType}
@@ -56,9 +63,10 @@ router.post("/bookings", (req, res) => {
       Booking details:
       \n
       Number Of Passengers : ${data.numberOfPassengers}
-      Departure : ${data.from}
-      Destination : ${data.to}
+      Departure : ${airPorts[parseInt(data.from) - 1]}
+      Destination : ${airPorts[parseInt(data.to) - 1]}
       
+      Best Reagrds ! \n
       Have a safe flight, 
       `,
         mailOptions = {
