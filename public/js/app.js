@@ -1,4 +1,4 @@
-const form = window.document.getElementById("form"),
+const form = document.getElementById("form"),
   showBookingModal = () => {
     let actionHeading = window.document.getElementById("actionHeading"),
       mapImage = document.getElementById("mapImage"),
@@ -15,4 +15,10 @@ const form = window.document.getElementById("form"),
     setTimeout(() => {
       mapImage.style.display = "none";
     }, 1400);
+  },
+  getTodaysDat = () => {
+    let today = new Date();
+    form.departureDate.setAttribute("min", today.toISOString().split("T")[0]);
   };
+
+getTodaysDat();
