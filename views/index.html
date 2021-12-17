@@ -54,7 +54,12 @@
             </div>
             <div class="formGroup flightType">
               <label for="flightType">Flight Type:</label>
-              <select name="flightType" id="flightType" required>
+              <select
+                onchange="handleChange()"
+                name="flightType"
+                id="flightType"
+                required
+              >
                 <option value="oneWay">One-Way</option>
                 <option value="roundTrip">Round-Trip</option>
               </select>
@@ -76,7 +81,7 @@
             </div>
             <div class="formGroup from">
               <label for="from">Departure:</label>
-              <select name="from" required>
+              <select onchange="handleChange()" name="from" required>
                 <option value="1">Oujda Angads Airport</option>
                 <option value="2">Nador El Aroui Airport</option>
                 <option value="3">Rabat-Salé Airport</option>
@@ -89,9 +94,9 @@
             </div>
             <div class="formGroup to">
               <label for="to">Destination:</label>
-              <select name="to" required>
+              <select onchange="handleChange()" name="to" required>
                 <option value="1">Oujda Angads Airport</option>
-                <option value="2">Nador El Aroui Airport</option>
+                <option value="2" selected>Nador El Aroui Airport</option>
                 <option value="3">Rabat-Salé Airport</option>
                 <option value="4">Tangier Ibn Battouta Airport</option>
                 <option value="5">Fez-Saïss Airport</option>
@@ -104,9 +109,13 @@
               <label for="DepartureDate">Departure Date:</label>
               <input name="departureDate" type="date" required />
             </div>
-            <div class="formGroup returnDate">
+            <div
+              id="returnDate"
+              class="formGroup returnDate"
+              style="visibility: hidden"
+            >
               <label for="returnDate">Return Date:</label>
-              <input name="returnDate" type="date" required />
+              <input name="returnDate" type="date" />
             </div>
 
             <button type="submit">BOOK NOW</button>
